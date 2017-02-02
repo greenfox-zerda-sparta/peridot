@@ -14,6 +14,7 @@ namespace TestingRepo
 	      Console.WriteLine("Mate Perirdot");
 	        int number = 1;
 	        int second = 2;
+		string karcsi = "charchi";
 
 	  }
 
