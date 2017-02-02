@@ -8,11 +8,13 @@
              d:DesignHeight="300" 
              d:DesignWidth="300"
              FontSize="14">
-    <Grid DataContext="{Binding Main, Source={StaticResource Locator}}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid DataContext="{Binding Main, Source={StaticResource Locator}}" 
+          HorizontalAlignment="Stretch" 
+          VerticalAlignment="Stretch">
         <Grid Background="Azure">
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid Margin="8" 
                   Grid.Row="0">
@@ -20,10 +22,17 @@
                     <RowDefinition/>
                     <RowDefinition Height="6*"/>
                 </Grid.RowDefinitions>
-                <TextBox BorderBrush="Turquoise" 
-                         IsReadOnly="True" Grid.Row="0" 
-                         TextWrapping="Wrap" 
-                         Text="{Binding SelectedMailMessage.Date}"/>
+                <Border  Grid.Row="0"
+                         Padding="5"
+                         BorderBrush="Turquoise" 
+                         BorderThickness="0.5"
+                         CornerRadius="8,8,8,8">
+                    <Grid>
+                    <TextBlock 
+                             TextWrapping="Wrap" 
+                             Text="{Binding SelectedMailMessage.Date}"/>
+                    </Grid>
+                </Border>
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -34,22 +43,44 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox BorderBrush="Turquoise" 
-                                 IsReadOnly="True" Grid.Column="0" 
-                                 FontWeight="Bold" 
-                                 Text="{Binding SelectedMailMessage.Subject}"/>
-                        <TextBox BorderBrush="Turquoise" 
-                                 IsReadOnly="True" Grid.Column="1" 
-                                 HorizontalAlignment="Stretch" 
-                                 Text="{Binding SelectedMailMessage.To}"/>
+
+                        <Border Grid.Column="0"
+                                Padding="5"
+                                BorderBrush="Turquoise" 
+                                BorderThickness="0.5"
+                                CornerRadius="8,8,8,8">
+                            <Grid>
+                                <TextBlock FontWeight="Bold" 
+                                           FontSize="18"
+                                           TextWrapping="Wrap"
+                                           Text="{Binding SelectedMailMessage.Subject}"/>
+                            </Grid>
+                        </Border>
+                        <Border BorderBrush="Turquoise" 
+                            Padding="5"
+                            BorderThickness="0.5"
+                            Grid.Column="1"
+                            CornerRadius="8,8,8,8">
+                            <Grid>
+                                <TextBlock Text="{Binding SelectedMailMessage.From}"
+                                           TextWrapping="Wrap"
+                                           FontWeight="ExtraLight"/>
+                            </Grid>
+                        </Border>
                     </Grid>
-                    <TextBox Grid.Row="1" 
-                             BorderBrush="Turquoise" 
-                             IsReadOnly="True" 
-                             TextWrapping="Wrap" 
-                             Text="{Binding SelectedMailMessage.BodyText}"/>
                 </Grid>
             </Grid>
+            <Border BorderBrush="Turquoise"
+                    Padding="5"
+                    BorderThickness="0.5"
+                    CornerRadius="8,8,8,8"
+                    Grid.Row="1" >
+                <TextBlock 
+                         TextWrapping="Wrap" 
+                         Padding="10"
+                         FontSize="15"
+                         Text="{Binding SelectedMailMessage.BodyText}"/>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>

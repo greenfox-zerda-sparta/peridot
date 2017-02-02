@@ -8,12 +8,16 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Background="Azure" DataContext="{Binding Main, Source={StaticResource Locator}}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <ListBox HorizontalContentAlignment="Stretch" ItemsSource="{Binding SelectedFolder.MailMessages}" SelectedItem="{Binding SelectedMailMessage}">
+        <ListBox HorizontalContentAlignment="Stretch" 
+                 ItemsSource="{Binding SelectedFolder.MailMessages}" 
+                 SelectedItem="{Binding SelectedMailMessage}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="Turquoise" BorderThickness="1" >
+                    <Border BorderBrush="Turquoise" 
+                            BorderThickness="0.5"
+                            CornerRadius="8,8,8,8">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -29,7 +33,12 @@
                                 <TextBlock Padding="10" FontStyle="Italic" Grid.Column="1" HorizontalAlignment="Right"  Text="{Binding Date}"/>
                             </Grid>
                             <TextBlock FontWeight="Bold" FontSize="16" Padding="10" Grid.Row="1" Text="{Binding Subject}" />
-                            <TextBlock FontSize="12" TextAlignment="Left" Padding="10" Grid.Row="2" Text="{Binding BodyText}" TextTrimming="WordEllipsis" MaxHeight="30" />
+                            <TextBlock FontSize="12" 
+                                       TextAlignment="Left" 
+                                       Padding="10" Grid.Row="2" 
+                                       Text="{Binding BodyText}" 
+                                       TextTrimming="WordEllipsis" 
+                                       MaxHeight="30" />
                         </Grid>
                     </Border>
                 </DataTemplate>

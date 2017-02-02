@@ -25,7 +25,8 @@
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="0, 0, 10, 0" Source="{StaticResource AccountImageSource}"/>
+                            <Image Margin="0, 0, 10, 0" 
+                                   Source="{StaticResource AccountImageSource}"/>
                             <TextBlock HorizontalAlignment="Right" 
                                        Margin="0, 5, 0, 0" 
                                        Text="{Binding ClientName}"/>
@@ -35,7 +36,10 @@
             </ComboBox>
         </Grid>
         <Grid Grid.Row="1">
-            <ListBox FontSize="14" ItemsSource="{Binding SelectedClient.Folders}" SelectedItem="{Binding SelectedFolder}">
+            <ListBox Background="Azure" 
+                     FontSize="14" 
+                     ItemsSource="{Binding SelectedClient.Folders}" 
+                     SelectedItem="{Binding SelectedFolder}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

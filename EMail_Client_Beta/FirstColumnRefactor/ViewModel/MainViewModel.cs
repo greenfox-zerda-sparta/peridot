@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using EMail_Client_Beta.Model;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 
 namespace EMail_Client_Beta.ViewModel
 {
