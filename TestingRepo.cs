@@ -6,12 +6,15 @@ namespace TestingRepo
     { 
 	  static void Main(string[] args) 
 	  {
-<<<<<<< HEAD
+
+
               Console.WriteLine("Hello Peridot Zerda Sparta");
-=======
+
               Console.WriteLine("Hello Peridot");
-	      Console.WriteLine("Mate Peridot");
->>>>>>> master
+	      Console.WriteLine("Mate Perirdot");
+	        int number = 1;
+	        int second = 2;
+
 	  }
 
     }
