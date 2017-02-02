@@ -6,8 +6,9 @@ namespace TestingRepo
     { 
 	  static void Main(string[] args) 
 	  {
-              Console.WriteLine("Hello Peridot");
-	      Console.WriteLine("Mate Peridot");
+            Console.WriteLine("Hello Peridot");
+	        Console.WriteLine("Mate Peridot");
+	        int number = 1;
 	  }
 
     }
