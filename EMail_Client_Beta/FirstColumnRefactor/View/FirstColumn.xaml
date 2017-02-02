@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="EMail_Client_Beta.FirstColumn"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EMail_Client_Beta"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" 
+             d:DesignWidth="300">
+    <UserControl.Resources>
+        <BitmapImage x:Key="AccountImageSource" UriSource="../Images/account.png"/>
+        <BitmapImage x:Key="InboxImageSource" UriSource="../Images/Inbox.png"/>
+    </UserControl.Resources>
+    <Grid HorizontalAlignment="Stretch" 
+          VerticalAlignment="Stretch" 
+          DataContext="{Binding Main, Source={StaticResource Locator}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <ComboBox FontSize="12" 
+                      ItemsSource = "{Binding Clients}" 
+                      SelectedItem="{Binding SelectedClient}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="0, 0, 10, 0" Source="{StaticResource AccountImageSource}"/>
+                            <TextBlock HorizontalAlignment="Right" 
+                                       Margin="0, 5, 0, 0" 
+                                       Text="{Binding ClientName}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListBox FontSize="14" ItemsSource="{Binding SelectedClient.Folders}" SelectedItem="{Binding SelectedFolder}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="0, 0, 10, 0" 
+                                   VerticalAlignment="Top" 
+                                   Source="{StaticResource InboxImageSource}"/>
+                            <TextBlock Margin="0, 5, 0, 0" 
+                                       Text="{Binding FolderName}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</UserControl>
