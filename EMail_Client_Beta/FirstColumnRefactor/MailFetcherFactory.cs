@@ -14,10 +14,8 @@ namespace EMail_Client_Beta
             switch(connectionInfo.Protocol)
             {
                 case Protocol.POP3:
-                case Protocol.POP3S:
                     return new POP3MailFetcher(connectionInfo);
                 case Protocol.IMAP:
-                case Protocol.IMAPS:
                 default:
                     return new IMAPMailFetcher(connectionInfo);
             }

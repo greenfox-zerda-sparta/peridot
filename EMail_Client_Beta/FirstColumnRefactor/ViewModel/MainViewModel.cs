@@ -2,7 +2,6 @@ using GalaSoft.MvvmLight;
 using System.Collections.ObjectModel;
 using EMail_Client_Beta.Model;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 
 namespace EMail_Client_Beta.ViewModel
@@ -30,6 +29,7 @@ namespace EMail_Client_Beta.ViewModel
             connectionInfo.Protocol = Protocol.IMAP;
             connectionInfo.ServerAddress = "imap.gmail.com";
             connectionInfo.ServerPort = 993;
+
             IMAPMailFetcher imapFetch = new IMAPMailFetcher(connectionInfo);
             var thisFolders = imapFetch.GetFolders();
             foreach(var folder in thisFolders)

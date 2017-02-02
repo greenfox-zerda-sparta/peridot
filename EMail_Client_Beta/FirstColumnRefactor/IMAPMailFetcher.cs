@@ -23,6 +23,7 @@ namespace EMail_Client_Beta
         public override IList<Folder> GetFolders()
         {
             List<Folder> folders = new List<Folder>();
+
             Connect();            
 
             var allFolders = client.GetFolders(client.PersonalNamespaces[0]);
@@ -32,6 +33,7 @@ namespace EMail_Client_Beta
                 try
                 {
                     folder.Open(FolderAccess.ReadWrite);
+
                     for (int i = 0; i < folder.Count; i++)
                     {
                         var message = folder.GetMessage(i);
@@ -51,34 +53,13 @@ namespace EMail_Client_Beta
                 }
                 catch (ImapCommandException)
                 {
-
+                    //There is a basic GMail folder, that's empty, and can't be open, so we have to catch the thrown exception
                 }
             }
+
             Disconnect();
 
             return folders;
-        }
-
-        public override IList<Model.MailMessage> GetMessages()
-        {
-            Model.MailMessage myMailMessage = new Model.MailMessage();
-            List<Model.MailMessage> messages = new List<Model.MailMessage>();
-
-            Connect();
-
-            client.Inbox.Open(FolderAccess.ReadOnly);
-            var fetchedMessages = client.Inbox.Fetch(0, -1, MessageSummaryItems.All);
-            foreach (var message in fetchedMessages)
-            {
-                myMailMessage.Subject = message.Envelope.Subject;
-                myMailMessage.To = message.Envelope.To.ToString();
-                myMailMessage.From = message.Envelope.From.ToString();
-                myMailMessage.Date = message.Envelope.Date.ToString();
-            }
-
-            Disconnect();
-
-            return messages;
         }
     }
 }

@@ -36,11 +36,6 @@ namespace EMail_Client_Beta
             }
         }
 
-        private bool UseSSL()
-        {
-            return connection.Protocol == Protocol.IMAPS || connection.Protocol == Protocol.POP3S;
-        }
-
         protected void Disconnect()
         {
             if(service.IsConnected)
@@ -50,7 +45,5 @@ namespace EMail_Client_Beta
         }
 
         public abstract IList<Folder> GetFolders();
-
-        public abstract IList<Model.MailMessage> GetMessages();
     }
 }

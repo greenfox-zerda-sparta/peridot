@@ -24,31 +24,12 @@ namespace EMail_Client_Beta
 
             Connect();
             
+            //need to declare what this function does, actually there are no folders in POP3, just inbox
+            //maybe get messages would be more clear, even for IMAP
+
             Disconnect();
 
             return folders;
-        }
-
-        public override IList<Model.MailMessage> GetMessages()
-        {
-            List<Model.MailMessage> mailmessages = new List<Model.MailMessage>();
-
-            Connect();
-
-            for (int i = 0; i < client.Count; i++)
-            {
-                Model.MailMessage mailMessage = new Model.MailMessage();
-                var message = client.GetMessage(i);
-                mailMessage.BodyText = message.TextBody;
-                mailMessage.Date = message.Date.ToString();
-                mailMessage.From = message.From.ToString();
-                mailMessage.Subject = message.Subject;
-                mailMessage.To = message.To.ToString();
-            }
-
-            Disconnect();
-
-            return new List<Model.MailMessage>();
         }
     }
 }

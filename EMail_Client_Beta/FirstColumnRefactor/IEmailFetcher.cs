@@ -13,6 +13,5 @@ namespace EMail_Client_Beta
     public interface IEmailFetcher
     {
         IList<Folder> GetFolders();
-        IList<Model.MailMessage> GetMessages();
     }
 }
