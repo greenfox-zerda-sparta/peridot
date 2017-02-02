@@ -26,7 +26,7 @@
                          Padding="5"
                          BorderBrush="Turquoise" 
                          BorderThickness="0.5"
-                         CornerRadius="8,8,8,8">
+                         CornerRadius="8">
                     <Grid>
                     <TextBlock 
                              TextWrapping="Wrap" 
@@ -48,7 +48,7 @@
                                 Padding="5"
                                 BorderBrush="Turquoise" 
                                 BorderThickness="0.5"
-                                CornerRadius="8,8,8,8">
+                                CornerRadius="8">
                             <Grid>
                                 <TextBlock FontWeight="Bold" 
                                            FontSize="18"
@@ -60,7 +60,7 @@
                             Padding="5"
                             BorderThickness="0.5"
                             Grid.Column="1"
-                            CornerRadius="8,8,8,8">
+                            CornerRadius="8">
                             <Grid>
                                 <TextBlock Text="{Binding SelectedMailMessage.From}"
                                            TextWrapping="Wrap"
@@ -73,7 +73,7 @@
             <Border BorderBrush="Turquoise"
                     Padding="5"
                     BorderThickness="0.5"
-                    CornerRadius="8,8,8,8"
+                    CornerRadius="8"
                     Grid.Row="1" >
                 <TextBlock 
                          TextWrapping="Wrap" 

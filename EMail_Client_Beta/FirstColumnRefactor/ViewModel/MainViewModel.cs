@@ -14,28 +14,28 @@ namespace EMail_Client_Beta.ViewModel
         ObservableCollection<Client> clients;
         ObservableCollection<Folder> folders;
         ObservableCollection<MailMessage> mailMessages;
+        IMAPMailFetcher imapFetch;
+
         private Client selectedClient = new Client();
         private Folder selectedFolder = new Folder();
         private MailMessage selectedMailMessage = new MailMessage();
 
+
         public MainViewModel()
         {
-            clients = new ObservableCollection<Client>();
-            folders = new ObservableCollection<Folder>();
-            mailMessages = new ObservableCollection<MailMessage>();
-
             connectionInfo.LoginName = "zerdaspartaperidot@gmail.com";
             connectionInfo.Password = "Frujudmat999";
             connectionInfo.Protocol = Protocol.IMAP;
             connectionInfo.ServerAddress = "imap.gmail.com";
             connectionInfo.ServerPort = 993;
 
-            IMAPMailFetcher imapFetch = new IMAPMailFetcher(connectionInfo);
+            clients = new ObservableCollection<Client>();
+            folders = new ObservableCollection<Folder>();
+            mailMessages = new ObservableCollection<MailMessage>();
+            imapFetch = new IMAPMailFetcher(connectionInfo);
+
             var thisFolders = imapFetch.GetFolders();
-            foreach(var folder in thisFolders)
-            {
-                folders.Add(folder);
-            }
+            foreach(var folder in thisFolders) { folders.Add(folder); }
             clients.Add(new Client() { ClientName = connectionInfo.LoginName, Folders = folders });
         }
 
@@ -44,12 +44,20 @@ namespace EMail_Client_Beta.ViewModel
             get { return folders; }
         }
 
+        public ObservableCollection<Client> Clients
+        {
+            get { return clients; }
+        }
+
+        public ObservableCollection<MailMessage> MailMessages
+        {
+            get { return mailMessages; }
+        }
+
         public Folder SelectedFolder
         {
             get
-            {
-                return selectedFolder;
-            }
+            { return selectedFolder; }
             set
             {
                 selectedFolder = value;
@@ -75,16 +83,6 @@ namespace EMail_Client_Beta.ViewModel
                 selectedMailMessage = value;
                 RaisePropertyChanged(() => SelectedMailMessage);
             }
-        }
-
-        public ObservableCollection<Client> Clients
-        {
-            get { return clients; }
-        }
-
-        public ObservableCollection<MailMessage> MailMessages
-        {
-            get { return mailMessages; }
         }
     }
 }

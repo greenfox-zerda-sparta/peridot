@@ -25,7 +25,7 @@ namespace EMail_Client_Beta
             Connect();
             
             //need to declare what this function does, actually there are no folders in POP3, just inbox
-            //maybe get messages would be more clear, even for IMAP
+            //maybe GetMessages would be more clear, even for IMAP
 
             Disconnect();
 

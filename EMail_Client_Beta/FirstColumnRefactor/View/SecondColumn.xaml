@@ -11,13 +11,15 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <ListBox HorizontalContentAlignment="Stretch" 
+                 Background="Azure"
                  ItemsSource="{Binding SelectedFolder.MailMessages}" 
                  SelectedItem="{Binding SelectedMailMessage}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Turquoise" 
                             BorderThickness="0.5"
-                            CornerRadius="8,8,8,8">
+                            CornerRadius="8,8,8,8"
+                            Padding="10">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>

@@ -12,7 +12,7 @@
         Icon="Images/inbox.png" 
         WindowStartupLocation="CenterScreen" 
         WindowState="Maximized" 
-        FontFamily="TW Cen MT"
+        FontFamily="pack://application:,,,/Fonts/#SFNS Display"
         FontSize="12">
     <Grid>
         <Grid.RowDefinitions>
