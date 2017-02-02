@@ -2,6 +2,7 @@ using GalaSoft.MvvmLight;
 using System.Collections.ObjectModel;
 using EMail_Client_Beta.Model;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EMail_Client_Beta.ViewModel
 {
@@ -34,7 +35,7 @@ namespace EMail_Client_Beta.ViewModel
             {
                 folders.Add(folder);
             }
-            clients.Add(new Model.Client() { ClientName = connectionInfo.LoginName, Folders = folders });
+            clients.Add(new Client() { ClientName = connectionInfo.LoginName, Folders = folders });
         }
 
         public ObservableCollection<Folder> Folders

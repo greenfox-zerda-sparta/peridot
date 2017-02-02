@@ -11,7 +11,7 @@
         <BitmapImage x:Key="AccountImageSource" UriSource="../Images/account.png"/>
         <BitmapImage x:Key="InboxImageSource" UriSource="../Images/Inbox.png"/>
     </UserControl.Resources>
-    <Grid HorizontalAlignment="Stretch" 
+    <Grid Background="Azure" HorizontalAlignment="Stretch" 
           VerticalAlignment="Stretch" 
           DataContext="{Binding Main, Source={StaticResource Locator}}">
         <Grid.RowDefinitions>

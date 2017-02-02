@@ -36,7 +36,7 @@ namespace EMail_Client_Beta
                     {
                         var message = folder.GetMessage(i);
 
-                        messages.Add(new Model.MailMessage()
+                        messages.Insert(0, new Model.MailMessage()
                         {
                             Subject = message.Subject,
                             To = message.To.ToString(),
@@ -45,7 +45,6 @@ namespace EMail_Client_Beta
                             BodyText = message.TextBody
                         });
                     }
-
                     folders.Add(new Folder() { FolderName = folder.Name, MailMessages = messages });
 
                     folder.Close();

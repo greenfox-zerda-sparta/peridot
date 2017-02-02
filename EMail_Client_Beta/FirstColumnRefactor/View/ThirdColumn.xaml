@@ -9,17 +9,21 @@
              d:DesignWidth="300"
              FontSize="14">
     <Grid DataContext="{Binding Main, Source={StaticResource Locator}}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid Background="AliceBlue">
+        <Grid Background="Azure">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Margin="8" Grid.Row="0">
+            <Grid Margin="8" 
+                  Grid.Row="0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="6*"/>
                 </Grid.RowDefinitions>
-                <TextBox IsReadOnly="True" Grid.Row="0" TextWrapping="Wrap" Text="{Binding SelectedMailMessage.Date}"/>
+                <TextBox BorderBrush="Turquoise" 
+                         IsReadOnly="True" Grid.Row="0" 
+                         TextWrapping="Wrap" 
+                         Text="{Binding SelectedMailMessage.Date}"/>
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -30,10 +34,20 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox IsReadOnly="True" Grid.Column="0" FontWeight="Bold" Text="{Binding SelectedMailMessage.Subject}"/>
-                        <TextBox IsReadOnly="True" Grid.Column="1" HorizontalAlignment="Stretch" Text="{Binding SelectedMailMessage.To}"/>
+                        <TextBox BorderBrush="Turquoise" 
+                                 IsReadOnly="True" Grid.Column="0" 
+                                 FontWeight="Bold" 
+                                 Text="{Binding SelectedMailMessage.Subject}"/>
+                        <TextBox BorderBrush="Turquoise" 
+                                 IsReadOnly="True" Grid.Column="1" 
+                                 HorizontalAlignment="Stretch" 
+                                 Text="{Binding SelectedMailMessage.To}"/>
                     </Grid>
-                    <TextBox IsReadOnly="True" Grid.Row="1" TextWrapping="Wrap" Text="{Binding SelectedMailMessage.BodyText}"/>
+                    <TextBox Grid.Row="1" 
+                             BorderBrush="Turquoise" 
+                             IsReadOnly="True" 
+                             TextWrapping="Wrap" 
+                             Text="{Binding SelectedMailMessage.BodyText}"/>
                 </Grid>
             </Grid>
         </Grid>
