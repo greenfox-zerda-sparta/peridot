@@ -8,8 +8,8 @@
              d:DesignHeight="300" 
              d:DesignWidth="300">
     <UserControl.Resources>
-        <BitmapImage x:Key="AccountImageSource" UriSource="../Images/account.png"/>
-        <BitmapImage x:Key="InboxImageSource" UriSource="../Images/Inbox.png"/>
+        <BitmapImage x:Key="AccountImageSource" UriSource="../Images/user_male.png"/>
+        <BitmapImage x:Key="InboxImageSource" UriSource="../Images/envelope.png"/>
     </UserControl.Resources>
     <Grid Background="Azure" HorizontalAlignment="Stretch" 
           VerticalAlignment="Stretch" 
@@ -25,10 +25,10 @@
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="0, 0, 10, 0" 
-                                   Source="{StaticResource AccountImageSource}"/>
+                            <Image Margin="0, 0, 15, 0" 
+                                   Source="{StaticResource AccountImageSource}"
+                                   VerticalAlignment="Bottom"/>
                             <TextBlock HorizontalAlignment="Right" 
-                                       Margin="0, 5, 0, 0" 
                                        Text="{Binding ClientName}"/>
                         </StackPanel>
                     </DataTemplate>
