@@ -11,19 +11,24 @@ namespace EMail_Client_Beta.Model
     public class Client : ObservableObject
     {
 
-        private string clientName;
+        private string eMailAddress;
+        private string password;
+        private Protocol protocol;
+        private string serverAddress;
+        private int port;
+
         private ObservableCollection<Folder> folders;
 
-        public string ClientName
+        public string EMailAddress
         {
             get
             {
-                return clientName;
+                return eMailAddress;
             }
 
             set
             {
-                Set(() => ClientName, ref clientName, value);
+                Set(() => EMailAddress, ref eMailAddress, value);
             }
         }
 
@@ -36,7 +41,59 @@ namespace EMail_Client_Beta.Model
 
             set
             {
-                folders = value;
+                Set(() => Folders, ref folders, value);
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                return password;
+            }
+
+            set
+            {
+                Set(() => Password, ref password, value);
+            }
+        }
+
+        public Protocol Protocol
+        {
+            get
+            {
+                return protocol;
+            }
+
+            set
+            {
+                Set(() => Protocol, ref protocol, value);
+            }
+        }
+
+        public int Port
+        {
+            get
+            {
+                return port;
+            }
+
+            set
+            {
+                Set(() => Port, ref port, value);
+            }
+        }
+
+        public string ServerAddress
+        {
+            get
+            {
+                return serverAddress;
+            }
+
+            set
+            {
+                Set(() => ServerAddress, ref serverAddress, value);
             }
         }
     }

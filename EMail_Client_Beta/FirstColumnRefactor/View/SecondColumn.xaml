@@ -31,10 +31,10 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock FontSize="12" Padding="10" Grid.Column="0" Text="{Binding From}" />
-                                <TextBlock Padding="10" FontStyle="Italic" Grid.Column="1" HorizontalAlignment="Right"  Text="{Binding Date}"/>
+                                <TextBlock FontSize="14" Padding="10" Grid.Column="0" Text="{Binding From}" />
+                                <TextBlock FontSize="14" Padding="10" FontStyle="Italic" Grid.Column="1" HorizontalAlignment="Right"  Text="{Binding Date}"/>
                             </Grid>
-                            <TextBlock FontWeight="Bold" FontSize="16" Padding="10" Grid.Row="1" Text="{Binding Subject}" />
+                            <TextBlock FontWeight="Bold" FontSize="18" Padding="10" Grid.Row="1" Text="{Binding Subject}" />
                             <TextBlock FontSize="12" 
                                        TextAlignment="Left" 
                                        Padding="10" Grid.Row="2" 

@@ -3,40 +3,32 @@ using System.Collections.ObjectModel;
 using EMail_Client_Beta.Model;
 using System.Collections.Generic;
 using System.Windows;
+using System;
+using GalaSoft.MvvmLight.Command;
+using System.Windows.Input;
 
 namespace EMail_Client_Beta.ViewModel
 {
 
     public class MainViewModel : ViewModelBase
     {
-        private MailboxConnectionInfo connectionInfo = new MailboxConnectionInfo();
+        private Client client = new Client();
 
         ObservableCollection<Client> clients;
         ObservableCollection<Folder> folders;
         ObservableCollection<MailMessage> mailMessages;
-        IMAPMailFetcher imapFetch;
 
         private Client selectedClient = new Client();
         private Folder selectedFolder = new Folder();
         private MailMessage selectedMailMessage = new MailMessage();
-
+        public ICommand OnLoadedCommand { get; set; }
 
         public MainViewModel()
         {
-            connectionInfo.LoginName = "zerdaspartaperidot@gmail.com";
-            connectionInfo.Password = "Frujudmat999";
-            connectionInfo.Protocol = Protocol.IMAP;
-            connectionInfo.ServerAddress = "imap.gmail.com";
-            connectionInfo.ServerPort = 993;
-
             clients = new ObservableCollection<Client>();
             folders = new ObservableCollection<Folder>();
             mailMessages = new ObservableCollection<MailMessage>();
-            imapFetch = new IMAPMailFetcher(connectionInfo);
-
-            var thisFolders = imapFetch.GetFolders();
-            foreach(var folder in thisFolders) { folders.Add(folder); }
-            clients.Add(new Client() { ClientName = connectionInfo.LoginName, Folders = folders });
+            OnLoadedCommand = new RelayCommand(OnLoaded);
         }
 
         public ObservableCollection<Folder> Folders
@@ -56,8 +48,7 @@ namespace EMail_Client_Beta.ViewModel
 
         public Folder SelectedFolder
         {
-            get
-            { return selectedFolder; }
+            get { return selectedFolder; }
             set
             {
                 selectedFolder = value;
@@ -83,6 +74,29 @@ namespace EMail_Client_Beta.ViewModel
                 selectedMailMessage = value;
                 RaisePropertyChanged(() => SelectedMailMessage);
             }
+        }
+
+        public void OnLoaded()
+        {
+            client.EMailAddress = "zerdaspartaperidot@gmail.com";
+            client.Password = "Frujudmat999";
+            client.Protocol = Protocol.IMAP;
+            client.ServerAddress = "imap.gmail.com";
+            client.Port = 993;
+
+            var fetcher = MailFetcherFactory.CreateClient(new MailboxConnectionInfo()
+            {
+                LoginName = client.EMailAddress,
+                Password = client.Password,
+                Protocol = client.Protocol,
+                ServerAddress = client.ServerAddress,
+                ServerPort = client.Port
+            });
+
+            var fetchedFolders = fetcher.GetFolders();
+            foreach (var folder in fetchedFolders) { folders.Add(folder); }
+            client.Folders = folders;
+            clients.Add(client);
         }
     }
 }

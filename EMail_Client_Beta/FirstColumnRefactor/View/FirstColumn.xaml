@@ -29,7 +29,7 @@
                                    Source="{StaticResource AccountImageSource}"
                                    VerticalAlignment="Bottom"/>
                             <TextBlock HorizontalAlignment="Right" 
-                                       Text="{Binding ClientName}"/>
+                                       Text="{Binding EMailAddress}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>

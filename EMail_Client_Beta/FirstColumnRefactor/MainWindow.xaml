@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EMail_Client_Beta"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         Title="Peridot E-Mail Client" 
         Height="640" 
@@ -12,8 +13,13 @@
         Icon="Images/inbox.png" 
         WindowStartupLocation="CenterScreen" 
         WindowState="Maximized" 
-        FontFamily="pack://application:,,,/Fonts/#SFNS Display"
-        FontSize="12">
+        FontSize="12"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding OnLoadedCommand }"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>

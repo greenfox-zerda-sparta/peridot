@@ -43,7 +43,7 @@ namespace EMail_Client_Beta
                             Subject = message.Subject,
                             To = message.To.ToString(),
                             From = message.From.ToString(),
-                            Date = message.Date.ToString(),
+                            Date = message.Date.DateTime.ToShortDateString(),
                             BodyText = message.TextBody
                         });
                     }
